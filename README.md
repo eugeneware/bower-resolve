@@ -81,7 +81,7 @@ var fs = require('fs');
 var browserify = require('browserify');
 var bowerResolve = require('bower-resolve');
 bowerResolve.init(function () {
-  b = browserify(['./app.js']);
+  var b = browserify(['./app.js']);
   b.external(bowerResolve('angular'));
   b.external(bowerResolve('jquery'));
   b.transform('debowerify');
