@@ -55,7 +55,7 @@ bowerResolve.init(function () {
   var b = browserify(['./lib.js']);
   b.transform('debowerify');
   b.require(bowerResolve('angular'), { expose: 'angular' });
-  b.require(bowerResolve('jquery'), { expose: 'jQuery' });
+  b.require(bowerResolve('jquery'), { expose: 'jquery' });
   b.bundle().pipe(fs.createWriteStream('./common.js'));
 });
 ```
