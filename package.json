@@ -1,6 +1,6 @@
 {
   "name": "bower-resolve",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Find the relative path name of a bower module, for use with browserify",
   "main": "index.js",
   "scripts": {
