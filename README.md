@@ -47,7 +47,7 @@ You can build out a common library that will contain the jquery and angular
 libraries into a file called common.js like so:
 
 ``` js
-// build out common.js to contain
+// build out angular and jquery to a library file called common.js
 var fs = require('fs');
 var browserify = require('browserify');
 var bowerResolve = require('bower-resolve');
