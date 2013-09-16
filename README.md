@@ -50,7 +50,7 @@ libraries into a file called common.js like so:
 // build out common.js to contain
 var fs = require('fs');
 var browserify = require('browserify');
-var bowerResolve = require('./bower-resolve');
+var bowerResolve = require('bower-resolve');
 bowerResolve.init(function () {
   var b = browserify();
   b.require(bowerResolve('angular'), { expose: 'angular' });
@@ -79,7 +79,7 @@ Then build it out using browswerify and debowerify as so:
 // build out app.js and use the angular and jquery libs from common.js
 var fs = require('fs');
 var browserify = require('browserify');
-var bowerResolve = require('./bower-resolve');
+var bowerResolve = require('bower-resolve');
 bowerResolve.init(function () {
   b = browserify(['./app.js']);
   b.external(bowerResolve('angular'));
