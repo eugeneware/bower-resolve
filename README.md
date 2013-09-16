@@ -52,8 +52,7 @@ var fs = require('fs');
 var browserify = require('browserify');
 var bowerResolve = require('./bower-resolve');
 bowerResolve.init(function () {
-  var b = browserify(['./lib.js']);
-  b.transform('debowerify');
+  var b = browserify();
   b.require(bowerResolve('angular'), { expose: 'angular' });
   b.require(bowerResolve('jquery'), { expose: 'jquery' });
   b.bundle().pipe(fs.createWriteStream('./common.js'));
