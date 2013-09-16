@@ -76,7 +76,8 @@ jQuery(function ($) {
 
 Then build it out using browswerify and debowerify as so:
 
-// build out common.js to contain
+``` js
+// build out app.js and use the angular and jquery libs from common.js
 var fs = require('fs');
 var browserify = require('browserify');
 var bowerResolve = require('./bower-resolve');
@@ -87,6 +88,7 @@ bowerResolve.init(function () {
   b.transform('debowerify');
   b.bundle().pipe(fs.createWriteStream('./bundle.js'));
 });
+```
 
 Then you'll have `common.js` that will have your shared code, and `bundle.js`
 will have your client code.
