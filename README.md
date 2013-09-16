@@ -1,6 +1,6 @@
 # bower-resolve
 
-Find the relative path name of a bower module, for use with browserify and debowerify.
+Find the relative path name of a bower module, for use with [browserify](https://github.com/substack/node-browserify) and [debowerify](https://github.com/eugeneware/debowerify).
 
 [![build status](https://secure.travis-ci.org/eugeneware/bower-resolve.png)](http://travis-ci.org/eugeneware/bower-resolve)
 
