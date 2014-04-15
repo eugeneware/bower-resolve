@@ -106,3 +106,18 @@ Then you can use them together from your HTML app as follows:
   </body>
 </html>
 ```
+
+## Disable version checking
+
+Bower module is doing check for new versions of installed components when 
+`bowerResolve.init` is called. You might want to prevent this behavior. Check
+is made using Git client, which needs to be installed and available system wide 
+(that might be an issue on Windows). Otherwise whole process will just fail
+without much useful error message. To disable version checking, use the 
+following:
+
+```js
+var bowerResolve = require('bower-resolve');
+bowerResolve.offline = true;
+bowerResolve.init(function() {....}};
+```
