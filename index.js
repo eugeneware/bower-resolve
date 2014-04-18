@@ -3,7 +3,7 @@ var bower = require('bower');
 var bowerModules;
 
 function readBowerModules(cb) {
-  bower.commands.list({map: true, offline: module.exports.offline})
+  bower.commands.list({map: true},{offline: module.exports.offline})
     .on('end', function (map) {
       bowerModules = map;
       cb(null, map);
