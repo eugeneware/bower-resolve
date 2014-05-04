@@ -18,7 +18,7 @@ function bowerRequire(moduleName) {
       var mainModule;
       var pkgMeta = module.pkgMeta;
       if (pkgMeta && pkgMeta.main) {
-        mainModule = Array.isArray(pkgMeta.main) ? pkgMeta.main[0] : pkgMeta.main;
+        mainModule = Array.isArray(pkgMeta.main) ? pkgMeta.main.filter(function (file) { return /\.js$/.test(file); })[0] : pkgMeta.main;
       } else {
         // if 'main' wasn't specified by this component, let's try
         // guessing that the main file is moduleName.js
