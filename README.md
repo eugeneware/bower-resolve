@@ -22,11 +22,19 @@ $ bower install js-base64
 
 Then to resolve the path of the main javascript file for a given bower module name:
 
+
 ``` js
 var bowerResolve = require('bower-resolve');
+
+//Option 1, using a port of bower's internal resolve algorithm
+bowerResolve.fastRead('js-base64', function(modulePath){
+    //equals %cwd%/bower_components/js-base64/base64.js 
+})
+
+//Option 2, using module list provided by bower's programmatic API 
 bowerResolve.init(function () {
   bowerResolve('js-base64')
-  // returns ./bower_components/js-base64/base64.js'
+  // returns %cwd%/bower_components/js-base64/base64.js'
 });
 ```
 

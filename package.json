@@ -1,7 +1,7 @@
 {
   "name": "bower-resolve",
-  "version": "1.1.0",
-  "description": "Find the relative path name of a bower module, for use with browserify",
+  "version": "2.2.0",
+  "description": "Find the relative path name of a bower module, for use with browserify and other build tools",
   "main": "index.js",
   "scripts": {
     "test": "node_modules/.bin/mocha --ui bdd --reporter spec"
@@ -19,7 +19,10 @@
     "node-browserify",
     "bower.io"
   ],
-  "author": "Eugene Ware <eugene@noblesamurai.com>",
+  "author": [
+    "Eugene Ware <eugene@noblesamurai.com>",
+    "Scott Ashton <scottmortonashton@gmail.com>"
+  ],
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/eugeneware/bower-resolve/issues"
