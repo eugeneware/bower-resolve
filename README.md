@@ -81,7 +81,7 @@ jQuery(function ($) {
 });
 ```
 
-Then build it out using browswerify and debowerify as so:
+Then build it out using browserify and debowerify as so:
 
 ``` js
 // build out app.js and use the angular and jquery libs from common.js
