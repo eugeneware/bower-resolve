@@ -59,10 +59,11 @@ function bowerResolveSync(moduleArg, opts){
         throw new Error('Bower resolve cannot resolve relative paths. Please pass a single filename with an optional extension')
     }
 
+
     //If extension type is on module is present, change moduleName and force that extension
-    if( moduleName.split('.').length > 1){
+    if(containsExtension(moduleName, fileExts)){
         moduleName = moduleName.split('.').slice(0, -1).join('.');
-        fileExts = [moduleName.split('.').pop()]
+        fileExts = [moduleName.split('.').pop()];
     }
 
     //traverse upwards checking for existence of bower identifiers at each level. Break when found
@@ -91,9 +92,9 @@ function bowerResolveSync(moduleArg, opts){
             modules.forEach(function(thisModuleName){
                 returnPath.push(getModulePath(thisModuleName))
             })
-            
+
         } else{
-            returnPath = getModulePath(moduleName);            
+            returnPath = getModulePath(moduleName);
         }
 
         function getModulePath(thisModuleName){
@@ -131,6 +132,14 @@ function arrFind(arr, test){
     }
     return null;
 }
+
+function containsExtension (moduleName, fileExts) {
+  var splittedName = moduleName.split('.');
+  var lastChunk = moduleName.split('.')[splittedName.length -1 ];
+
+  return arrFind(fileExts, new RegExp("." + lastChunk + "$"));
+}
+
 
 module.exports = bowerRequire;
 module.exports.init = readBowerModules;
