@@ -14,6 +14,14 @@ describe('bower-resolve', function() {
     });
   });
 
+  it('should be able to resolve to a bower component with dot in it\'s name', function(done) {
+    this.timeout(5000);
+    bowerResolve.init(function () {
+      expect(bowerResolve('js.augment')).to.equal(path.join(process.cwd(), "vendor", "js.augment", "lib/augment.js"));
+      done();
+    });
+  });
+
   it('should fast resolve a bower component', function(done) {
 
       this.timeout(5000);
