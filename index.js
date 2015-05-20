@@ -98,8 +98,14 @@ function bowerResolveSync(moduleArg, opts){
         }
 
         function getModulePath(thisModuleName){
-            var moduleConfig = fs.readFileSync([basePath, bowerDirRelPath, thisModuleName, 'bower.json'].join('/')),
-                relFilePath = thisModuleName + "." + fileExts[0];
+            var moduleConfig;
+
+            if ( fs.existsSync( [basePath, bowerDirRelPath, thisModuleName, 'bower.json'].join('/') ) ) {
+                moduleConfig = fs.readFileSync([basePath, bowerDirRelPath, thisModuleName, 'bower.json'].join('/'));
+            } else {
+                moduleConfig = fs.readFileSync([basePath, bowerDirRelPath, thisModuleName, '.bower.json'].join('/'));
+            }
+            var relFilePath = thisModuleName + "." + fileExts[0];
 
             if(moduleConfig){
                 moduleConfig = JSON.parse(moduleConfig).main;
