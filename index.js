@@ -98,10 +98,16 @@ function bowerResolveSync(moduleArg, opts){
         }
 
         function getModulePath(thisModuleName){
-            var moduleConfig = fs.readFileSync([basePath, bowerDirRelPath, thisModuleName, 'bower.json'].join('/')),
-                relFilePath = thisModuleName + "." + fileExts[0];
+            var relFilePath = thisModuleName + "." + fileExts[0];
+            var bFile = [basePath, bowerDirRelPath, thisModuleName, 'bower.json'].join('/');
+            var bDotFile = [basePath, bowerDirRelPath, thisModuleName, '.bower.json'].join('/');
 
-            if(moduleConfig){
+            var moduleConfig = null;
+            if (fs.existsSync(bFile)) moduleConfig = fs.readFileSync(bFile);
+            else if (fs.existsSync(bDotFile)) moduleConfig = fs.readFileSync(bDotFile);
+            else throw new Error('Cannot find bower.json nor .bower.json, bailing out');
+
+            if (moduleConfig) {
                 moduleConfig = JSON.parse(moduleConfig).main;
                 if(typeof moduleConfig == 'object'){
                     var temp;
